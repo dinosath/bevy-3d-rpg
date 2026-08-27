@@ -16,6 +16,38 @@ pub struct Sprint;
 
 #[derive(InputAction)]
 #[action_output(bool)]
+pub struct Dodge;
+
+#[derive(InputAction)]
+#[action_output(bool)]
+pub struct LightAttack;
+
+#[derive(InputAction)]
+#[action_output(bool)]
+pub struct HeavyAttack;
+
+#[derive(InputAction)]
+#[action_output(bool)]
+pub struct LockOn;
+
+#[derive(InputAction)]
+#[action_output(bool)]
+pub struct Interact;
+
+#[derive(InputAction)]
+#[action_output(bool)]
+pub struct UseItem;
+
+#[derive(InputAction)]
+#[action_output(bool)]
+pub struct SwitchTargetLeft;
+
+#[derive(InputAction)]
+#[action_output(bool)]
+pub struct SwitchTargetRight;
+
+#[derive(InputAction)]
+#[action_output(bool)]
 pub struct Dash;
 
 #[derive(Component, Default)]
@@ -49,21 +81,49 @@ impl PlayerInput {
                     bindings![KeyCode::Space, GamepadButton::South],
                 ),
                 (
+                    Action::<Dodge>::new(),
+                    ActionSettings {
+                        require_reset: true,
+                        ..Default::default()
+                    },
+                    bindings![KeyCode::ShiftLeft, GamepadButton::South],
+                ),
+                (
                     Action::<Sprint>::new(),
                     bindings![KeyCode::ShiftLeft, GamepadButton::LeftThumb],
                 ),
-                // (
-                //     Action::<Dash>::new(),
-                //     bindings![KeyCode::AltLeft, GamepadButton::LeftTrigger],
-                // ),
-                // (
-                //     Action::<Attack>::new(),
-                //     bindings![MouseButton::Left, GamepadButton::RightTrigger2],
-                // ),
-                // (
-                //     Action::<ZoomView>::new(),
-                //     bindings![MouseButton::Right, GamepadButton::RightTrigger2],
-                // ),
+                (
+                    Action::<LightAttack>::new(),
+                    bindings![MouseButton::Left, GamepadButton::RightTrigger],
+                ),
+                (
+                    Action::<HeavyAttack>::new(),
+                    bindings![MouseButton::Right, GamepadButton::LeftTrigger],
+                ),
+                (
+                    Action::<LockOn>::new(),
+                    ActionSettings {
+                        require_reset: true,
+                        ..Default::default()
+                    },
+                    bindings![KeyCode::Tab, GamepadButton::RightThumb],
+                ),
+                (
+                    Action::<Interact>::new(),
+                    bindings![KeyCode::KeyE, GamepadButton::West],
+                ),
+                (
+                    Action::<UseItem>::new(),
+                    bindings![KeyCode::KeyQ, GamepadButton::North],
+                ),
+                (
+                    Action::<SwitchTargetLeft>::new(),
+                    bindings![KeyCode::KeyZ, GamepadButton::LeftTrigger],
+                ),
+                (
+                    Action::<SwitchTargetRight>::new(),
+                    bindings![KeyCode::KeyC, GamepadButton::RightTrigger],
+                ),
                 (
                     Action::<RotateCamera>::new(),
                     Bindings::spawn((

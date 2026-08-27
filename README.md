@@ -52,6 +52,58 @@ To set this up, follow the instructions in the [release announcement](https://be
 - [x] custom font replace example using pre-loaded font
 - [x] simple blended animation setup with AnimationGraph & smooth AnimationTransitions
 
+## Souls-like prototype architecture
+
+This repository now includes the core building blocks for a Souls-like prototype layered on top of the existing Bevy template:
+
+- `GameAction` / `ControlScheme` model for a single action layer that maps keyboard/mouse and gamepad inputs to the same gameplay abstraction.
+- player combat state tracking (`PlayerState`, `Player.health`, `Player.stamina`) and reusable combat data (`AttackDefinition`, `HitboxDefinition`, `DamageEvent`, `LockOnTarget`, `LockOnController`).
+- quick-action HUD scaffolding that surfaces the active control scheme and shows contextual action labels such as `Dodge`, `Attack`, `Heavy`, `Lock On`, `Interact`, and `Use Item`.
+- a reusable attack and lock-on data model intended for future weapon and enemy implementations.
+
+The runtime action map is aligned with the prompt's Souls-like conventions:
+
+- `Move` -> WASD / Left Stick
+- `Camera` -> Mouse / Right Stick
+- `Sprint` -> Shift / Left Stick press / shoulder bind
+- `Dodge` -> Space / A
+- `LightAttack` -> LMB / RT
+- `HeavyAttack` -> RMB / LT
+- `LockOn` -> Tab / R3
+- `Interact` -> E / X
+- `UseItem` -> Q / Y
+- `SwitchTargetLeft` / `SwitchTargetRight` -> Z / C or shoulder binds
+
+## Controls
+
+Keyboard / mouse:
+- Move: WASD
+- Camera: mouse movement
+- Sprint: Shift
+- Dodge: Space
+- Attack: Left mouse
+- Heavy attack: Right mouse
+- Lock-on: Tab
+- Interact: E
+- Use item: Q
+- Switch target: Z / C
+
+Gamepad:
+- Move: Left stick
+- Camera: Right stick
+- Sprint: L1 / R1
+- Dodge: A
+- Attack: RT
+- Heavy attack: LT
+- Lock-on: R3
+- Interact: X
+- Use item: Y
+- Switch target: L1 / R1
+
+## Asset licenses
+
+This project keeps a machine-readable asset list in `assets/credits.json`. The base template is compatible with CC0 / CC-BY assets and should continue to track any new models, sounds, and textures before they are shipped in a production build.
+
 ### TODOs
 - [ ] 3d and 2d particles demo: shooting magic balls, fireplace, step dust
 - [ ] sullscreen effect shader demo: getting hurt by height fall?

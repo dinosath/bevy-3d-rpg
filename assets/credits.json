@@ -1,0 +1,44 @@
+{
+  "assets": [
+    {
+      "asset_name": "Bevy Logo",
+      "creator": "Bevy Foundation",
+      "source_url": "https://bevyengine.org",
+      "license": "Permission granted for unmodified splash screen use",
+      "license_url": "https://bevyengine.org/",
+      "local_path": "assets/textures/bevy.png",
+      "intended_usage": "splash screen and branding",
+      "modifications": "Unmodified"
+    },
+    {
+      "asset_name": "Menu Music",
+      "creator": "smnbl",
+      "source_url": "https://github.com/bevyengine/bevy_asset_loader",
+      "license": "CC-BY",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "local_path": "assets/audio/music/smnbl-green-embrace.ogg",
+      "intended_usage": "menu and ambient loops",
+      "modifications": "Trimmed loops for prototype use"
+    },
+    {
+      "asset_name": "Example Fonts",
+      "creator": "Not Jam",
+      "source_url": "https://www.1001fonts.com/not-jam-font.html",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "local_path": "assets/fonts/Not-Jam-Mono-Clean-16.ttf",
+      "intended_usage": "UI typography and debug text",
+      "modifications": "Used as default font for the project"
+    },
+    {
+      "asset_name": "Prototype scene assets",
+      "creator": "olekspickle",
+      "source_url": "https://github.com/olekspickle/bevy_new_3d_rpg",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "local_path": "assets/models/scene.gltf",
+      "intended_usage": "prototype environment and test geometry",
+      "modifications": "Adapted for the prototype scene graph"
+    }
+  ]
+}

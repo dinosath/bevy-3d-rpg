@@ -12,10 +12,10 @@ concurrency:
 
 env:
   # Reduce compile time and cache size.
-  RUSTFLAGS: -Dwarnings -Zshare-generics=y -Zthreads=0
-  RUSTDOCFLAGS: -Dwarnings -Zshare-generics=y -Zthreads=0
+  RUSTFLAGS: -Dwarnings
+  RUSTDOCFLAGS: -Dwarnings
   # Use the same Rust toolchain across jobs so they can share a cache.
-  toolchain: nightly-2026-01-22
+  toolchain: stable
 
 jobs:
   # Check formatting.
@@ -132,7 +132,6 @@ jobs:
       - name: Run Bevy lints
         run: bevy_lint --locked --workspace --all-targets --profile ci
 
-  # variadic generics are not supported on this nightly yet
   # # Run tests.
   # tests:
   #   name: Tests

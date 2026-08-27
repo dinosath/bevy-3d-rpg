@@ -99,7 +99,7 @@ env:
   # This is most useful in combination with
   use_github_cache: true
 
-  toolchain: nightly-2026-01-22
+  toolchain: stable
 
 jobs:
   get-version:
@@ -196,9 +196,7 @@ jobs:
           echo "package=${app_package_name}-"'${{ matrix.platform }}${{ matrix.package_ext }}' >> "${GITHUB_ENV}"
 
           # Rustflags:
-          RUSTFLAGS='-Zthreads=0'
           if [ '${{ matrix.platform }}' != 'windows' ]; then
-            RUSTFLAGS="${RUSTFLAGS:+$RUSTFLAGS }"'-Zshare-generics=y'
           fi
           # Set up platform library rpaths
           if [ '${{ matrix.platform }}' = 'linux' ]; then
@@ -235,7 +233,7 @@ jobs:
 
       - name: Install Rust toolchain
         if: ${{ env.is_platform_enabled == 'true' }}
-        uses: dtolnay/rust-toolchain@nightly
+        uses: dtolnay/rust-toolchain@stable
         with:
           targets: ${{ matrix.targets }}
           components: rust-src

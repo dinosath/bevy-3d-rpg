@@ -129,4 +129,3 @@ nonstandard_macro_braces = "warn"   # Make sure macros use their standard braces
 bevy_ahoy = { git = "https://github.com/janhohenheim/bevy_ahoy" }
 bevy_perf_ui = { git = "https://github.com/olekspickle/perf_ui" }
 bevy_sprinkles = { git = "https://github.com/olekspickle/sprinkles" }
-

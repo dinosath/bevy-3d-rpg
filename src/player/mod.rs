@@ -151,6 +151,11 @@ pub struct Player {
     /// Used for time based effects, like slide dust or magic attacks
     pub last_input_change: Instant,
     pub animation: Animations,
+    pub state: PlayerState,
+    pub health: f32,
+    pub max_health: f32,
+    pub stamina: f32,
+    pub max_stamina: f32,
 }
 
 /// FIXME: hack because we spawn player entity with complex child hierarchy
@@ -166,8 +171,29 @@ impl Default for Player {
             id: PLACEHOLDER_ENTITY,
             animation: Animations::default(),
             last_input_change: Instant::now(),
+            state: PlayerState::Idle,
+            health: 100.0,
+            max_health: 100.0,
+            stamina: 100.0,
+            max_stamina: 100.0,
         }
     }
+}
+
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Hash, Reflect)]
+#[reflect(PartialEq, Debug, Default)]
+pub enum PlayerState {
+    #[default]
+    Idle,
+    Walk,
+    Run,
+    Turn,
+    Attack,
+    HeavyAttack,
+    Roll,
+    Hit,
+    Death,
+    Recover,
 }
 
 #[derive(Component, Default, Deref)]

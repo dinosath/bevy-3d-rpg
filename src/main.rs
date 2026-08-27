@@ -13,11 +13,13 @@ use std::io::Cursor;
 pub mod asset_loading;
 pub mod audio;
 pub mod camera;
+pub mod combat;
 pub mod game;
 pub mod player;
 pub mod scene;
 pub mod screens;
 pub mod shared;
+pub mod souls;
 pub mod third_party;
 pub mod ui;
 
@@ -74,10 +76,12 @@ fn main() {
         audio::plugin,
         asset_loading::plugin,
         camera::plugin,
+        combat::plugin,
         ui::plugin,
         shared::plugin,
         scene::plugin,
         player::plugin,
+        souls::plugin,
         screens::plugin,
         game::plugin,
     ))
